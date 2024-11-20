@@ -15,7 +15,7 @@ const Page = async ({params}:PageProps)=>{
     const reconstructedUrl = reconstructUrl({url:params.url as string[]});
     const isAlreadyIndexed = await redis.sismember("indexed-urls",reconstructedUrl)
     const sessionId = "mock-session"
-    //console.log("is indexed" , isAlreadyIndexed);
+    console.log("is indexed" , isAlreadyIndexed);
     if(!isAlreadyIndexed){
         await ragChat.context.add({
         type:"html",
