@@ -1,13 +1,14 @@
 "use client"
 import React from 'react'
-import {useChat} from 'ai/react'
+import {Message, useChat} from 'ai/react'
 import { Messages } from './Messages'
 import ChatInput from './ChatInput'
-const ChatWrapper = ({sessionId}:{sessionId:string}) => {
+const ChatWrapper = ({sessionId,initialMessages}:{sessionId:string,initialMessages:Message[]}) => {
     //configuration on how the vercel ai sdk gets the chats from our application 
     const {messages,handleInputChange,input,handleSubmit,setInput} = useChat({
         api:"/api/chat-stream",
-        body: {sessionId}
+        body: {sessionId},
+        initialMessages:initialMessages,
     })
   return (
     <div className='relative min-h-full bg-zinc-900 flex divide-y divide-zinc-700 flex-col justify-between gap-2'>
