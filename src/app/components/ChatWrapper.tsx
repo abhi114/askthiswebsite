@@ -5,7 +5,7 @@ import { Messages } from './Messages'
 import ChatInput from './ChatInput'
 const ChatWrapper = ({sessionId}:{sessionId:string}) => {
     //configuration on how the vercel ai sdk gets the chats from our application 
-    const {messages,handleInputChange,input,handleSubmit} = useChat({
+    const {messages,handleInputChange,input,handleSubmit,setInput} = useChat({
         api:"/api/chat-stream",
         body: {sessionId}
     })
@@ -14,7 +14,7 @@ const ChatWrapper = ({sessionId}:{sessionId:string}) => {
         <div className='flex-1 text-black bg-zinc-800 justify-between flex flex-col'>
             <Messages messages={messages}/>
         </div>
-        <ChatInput/>
+        <ChatInput input={input} handleInputChange={handleInputChange} handleSubmit={handleSubmit} setInput={setInput}/>
     </div>
   )
 }

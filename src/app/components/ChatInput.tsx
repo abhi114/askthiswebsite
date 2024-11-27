@@ -7,9 +7,9 @@ type HandleInputChange = ReturnType<typeof useChat>["handleInputChange"]
 type HandleSubmit  = ReturnType<typeof useChat>["handleSubmit"]
 type SetInput  = ReturnType<typeof useChat>["setInput"]
 interface ChatInputProps {
-    input:string,
-    handleInputChange: HandleInputChange,
-    handleSubmit :HandleSubmit,
+    input:string
+    handleInputChange: HandleInputChange
+    handleSubmit :HandleSubmit
     setInput:SetInput
 }
 const ChatInput = ({handleInputChange,handleSubmit,input,setInput}:ChatInputProps) => {
